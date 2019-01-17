@@ -85,9 +85,8 @@ def birkak_kipakolasa():
         else:
             i = nincs_birka
             random_birka_kirakas.append(i)
+    return random_birka_kirakas
 
 
-birkak_kipakolasa()
+tabla_megjelenites(birkak_kipakolasa())
 
-tabla_megjelenites(random_birka_kirakas)
-print(random_birka_kirakas.count('o'))
