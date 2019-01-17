@@ -18,9 +18,37 @@
 # Ha eléri a falat, vesztés
 # Halott birkák
 # sérült birkák
+# szeretne-e még játszani?
 
 import os
 import random
+
+# Milyen birkak lehetnek
+van_birka = 'o'
+nincs_birka = ' '
+serult_birka = 's'
+halott_birka = 'x'
+
+
+def jatekos_udvozlese():
+    file_obj = open('sheep.txt')
+    tartalom = file_obj.read()
+    print(tartalom)
+    file_obj.close()
+    input(' ')
+    print("Üdv a Birka lövő játékban!")
+    input(' ')
+    print('Ha nem szereted ezeket a szegény jószágokat, vagy csak szeretsz lövöldözni, ez a neked való játék!')
+    input(' ')
+    print('Minden o jelzés egy birkát jelöl, aki szeretné, ha békén hagynád, de te nem fogod.')
+    print('A sor (1,2,3...) és oszlop (A,B,C...) koordináták segítségével tudod leadni a lövéseidet.')
+    input(' ')
+    print('Ne bízd el magad! A leadott lövéseidet meghallják és odébb ugranak. Ha valamelyikük eléri a karám szélét\nvesztettél!')
+    input(' ')
+    print('Nem biztos, hogy mindig jól célzol... Előfordulhatnak sérült birkák is (S), akik ugyanúgy küzenek az életükért.')
+    input(' ')
+    print('Lássuk mire vagy képes...')
+
 
 
 def tabla_megjelenites(birka):
@@ -62,12 +90,6 @@ def tabla_megjelenites(birka):
     print('')
 
 
-# Milyen birkak lehetnek
-van_birka = 'o'
-nincs_birka = ' '
-serult_birka = 's'
-halott_birka = 'x'
-
 
 def birkak_kipakolasa():
     random_birka_kirakas = []
@@ -87,6 +109,7 @@ def birkak_kipakolasa():
             random_birka_kirakas.append(i)
     return random_birka_kirakas
 
-
+jatekos_udvozlese()
 tabla_megjelenites(birkak_kipakolasa())
 
+jatekos_koordinatak_megadasa = input('Add meg a lövés koordinátáid (sor/oszlop): ').lower()
