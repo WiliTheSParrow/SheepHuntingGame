@@ -2,18 +2,6 @@
 # |  BIRKA  JÁTÉK  |
 # -----------------
 
-# 	- Ki kell rajzolni egy pályát vonalakból
-# 	- Magát a karámot lehessen megszabni mekkora legyen
-# 	- A program létrehozza a birkákat a karámon belül, tetszőleges poziba rakja őket (pálya száma változik, nem lehet tele birkával)
-# 	- Játékos annyit lát, h megjelenik neki a pálya a birkákkal
-# 	- "Kérem lőjön a birkára", sor és oszlop azonosító szerint leadja a lövését
-# 	- A birkák félénk állatok, lövés pillanatában a birka ugrik egyet, az, h milyen irányba, az véletlenszerű
-# 	- Esetleg sikerül eltalálni, a birka nem biztos, h rögtön meghal. Véletlenszerű, hogy hogyan találom el. A birka sérült birka lesz. S betűvel jelölöm
-# 	- Cél, h leszedjük a birkákat a pályáról, lehet a jele x
-# 	- HA a birka eléri a karám szélét, akkor vesztettünk.
-
-# Tábla kirajzolása
-# Birkák elhelyezése a táblára (random)
 # Birkák mozgatása lövésnél
 # Ha eléri a falat, vesztés
 # Halott birkák
@@ -108,7 +96,6 @@ def birkak_kipakolasa():
             i = nincs_birka
             birka.append(i)
     return birka
-
 
 
 def birkaloves():
@@ -339,7 +326,6 @@ def birkaloves():
         'k10': birka[109]
     }
 
-
     jatekos_koordinatak_megadasa = input('Add meg a lövés koordinátáid (oszlop/sor): ').lower()
 
     "".join([mezok.get(val, "") for val in jatekos_koordinatak_megadasa])
@@ -352,8 +338,11 @@ def birkaloves():
             x = random.randint(0, 1)
             if x == 0:
                 print("Birka találat!")
+                mezok[jatekos_koordinatak_megadasa] = '.'
+
             else:
                 print("Eltaláltad, de nem volt pontos a célzás. Sérült birka.")
+                mezok[jatekos_koordinatak_megadasa] = 's'
         else:
             print("Nem talált!")
     else:
@@ -361,9 +350,6 @@ def birkaloves():
 
 
 # jatekos_udvozlese()
-
-tabla_megjelenites(birkak_kipakolasa())
-print(birka)
-i = birka[3]
-print(i)
-birkaloves()
+while True:
+    tabla_megjelenites(birkak_kipakolasa())
+    birkaloves()
