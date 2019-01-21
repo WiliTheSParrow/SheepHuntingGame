@@ -97,6 +97,8 @@ def birkak_kipakolasa():
             birka.append(i)
     return birka
 
+def halott_serult_birka(birka: list, jelolo: str, pozicio:int):
+    birka[pozicio] = jelolo
 
 def birkaloves():
     # <editor-fold desc="Koordinatak es birkak">
@@ -338,11 +340,14 @@ def birkaloves():
             x = random.randint(0, 1)
             if x == 0:
                 print("Birka találat!")
-                mezok[jatekos_koordinatak_megadasa] = '.'
+                halott_serult_birka(birka, '.',)
+                print(mezok[jatekos_koordinatak_megadasa])
+                birka[]
+# Szótáramnak azon az kulcson (amit megadott koordinátát a játékosom) alő kell kaparjam a birka koordinátáját.
 
             else:
                 print("Eltaláltad, de nem volt pontos a célzás. Sérült birka.")
-                mezok[jatekos_koordinatak_megadasa] = 's'
+
         else:
             print("Nem talált!")
     else:
